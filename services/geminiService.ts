@@ -1,7 +1,7 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { Application, Tutorial } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY as string });
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY as string });
 
 export const getTutorial = async (prompt: string, appName: Application): Promise<Tutorial> => {
   const model = "gemini-2.5-flash";

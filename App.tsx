@@ -100,23 +100,32 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen font-sans text-white bg-gray-900">
-      <TutorInterface
-        selectedApp={selectedApp}
-        onAppChange={handleAppChange}
-        prompt={prompt}
-        setPrompt={setPrompt}
-        handleSubmit={handleSubmit}
-        isLoading={isLoading}
-        error={error}
-        tutorial={tutorial}
-        isInitialState={isInitialState}
-        isHistoryOpen={isHistoryOpen}
-        setIsHistoryOpen={setIsHistoryOpen}
-        history={history}
-        onSelectHistoryItem={handleSelectHistoryItem}
-        onClearHistory={handleClearHistory}
-      />
+    <div className="min-h-screen font-sans text-white bg-gray-900 flex flex-col">
+      <div className="flex-grow">
+        <TutorInterface
+          selectedApp={selectedApp}
+          onAppChange={handleAppChange}
+          prompt={prompt}
+          setPrompt={setPrompt}
+          handleSubmit={handleSubmit}
+          isLoading={isLoading}
+          error={error}
+          tutorial={tutorial}
+          isInitialState={isInitialState}
+          isHistoryOpen={isHistoryOpen}
+          setIsHistoryOpen={setIsHistoryOpen}
+          history={history}
+          onSelectHistoryItem={handleSelectHistoryItem}
+          onClearHistory={handleClearHistory}
+        />
+      </div>
+      
+      {/* Footer */}
+      <footer className="py-4 text-center text-gray-500 text-sm">
+        <a href="https://147.studio" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors">
+          © 2025 147Studio. All Rights Reserved.
+        </a>
+      </footer>
     </div>
   );
 };
