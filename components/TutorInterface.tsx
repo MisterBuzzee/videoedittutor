@@ -184,24 +184,31 @@ const TutorialDisplay: React.FC<{ tutorial: Tutorial, app: Application }> = ({ t
   };
 
   return (
-    <div className="bg-white/5 p-4 sm:p-6 rounded-lg max-w-3xl w-full animate-fade-in">
-        <div className="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
-          <h2 className="text-xl sm:text-2xl font-bold pr-4">{tutorial.title}</h2>
+    <div className="bg-white/5 backdrop-blur-sm p-6 rounded-xl max-w-3xl w-full animate-fade-in border border-white/10 shadow-xl">
+        <div className="flex flex-col sm:flex-row justify-between items-start gap-4 mb-6">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white pr-4">{tutorial.title}</h2>
           <button
             onClick={handleDownloadPdf}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 bg-white/10 text-gray-300 hover:bg-white/20 hover:text-white self-start sm:self-auto flex-shrink-0"
+            className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 bg-white/10 text-gray-300 hover:bg-white/20 hover:text-white self-start sm:self-auto flex-shrink-0"
             aria-label="Download tutorial as PDF"
           >
             <DownloadIcon className="text-base" />
             Download PDF
           </button>
         </div>
-        <ol className="list-inside space-y-4 text-gray-300 text-sm sm:text-base">
+        <ol className="space-y-5">
             {tutorial.steps.map((step, index) => {
                 const cleanedStep = step.replace(/^Step\s*\d+:\s*/i, '');
                 return (
-                    <li key={index} className="pl-2 leading-relaxed">
-                        <span className={`font-bold ${accentColorClass}`}>Step {index + 1}:</span> {cleanedStep}
+                    <li key={index} className="flex gap-3 group">
+                        <div className={`flex-shrink-0 w-8 h-8 rounded-full ${accentColorClass} bg-white/10 flex items-center justify-center font-bold mt-0.5`}>
+                            {index + 1}
+                        </div>
+                        <div className="flex-grow">
+                            <p className="text-gray-200 leading-relaxed text-base sm:text-lg">
+                                {cleanedStep}
+                            </p>
+                        </div>
                     </li>
                 );
             })}
