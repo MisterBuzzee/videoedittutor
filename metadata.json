@@ -1,0 +1,5 @@
+{
+  "name": "DavinciTutor",
+  "description": "An AI-powered tutor that provides step-by-step tutorials for Davinci Resolve. Ask how to perform a task, and the AI will guide you through it.",
+  "requestFramePermissions": []
+}
